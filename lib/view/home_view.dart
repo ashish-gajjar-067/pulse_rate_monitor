@@ -33,12 +33,11 @@ class HomePageView extends State<HomePage> with SingleTickerProviderStateMixin {
     super.initState();
     _animationController =
         AnimationController(duration: Duration(milliseconds: 500), vsync: this);
-    _animationController
-      .addListener(() {
-        setState(() {
-          _iconScale = 1.0 + _animationController.value * 0.4;
-        });
+    _animationController.addListener(() {
+      setState(() {
+        _iconScale = 1.0 + _animationController.value * 0.4;
       });
+    });
   }
 
   @override
@@ -399,9 +398,11 @@ class HomePageView extends State<HomePage> with SingleTickerProviderStateMixin {
           if (this._bpm < minbpm) minbpm = this._bpm;
         });
       }
-      await Future.delayed(Duration(
-          milliseconds:
-              1000 * _windowLen ~/ _fs)); // wait for a new set of _data values
+      await Future.delayed(
+        Duration(
+          milliseconds: 1000 * _windowLen ~/ _fs,
+        ),
+      ); // wait for a new set of _data values
     }
   }
 }

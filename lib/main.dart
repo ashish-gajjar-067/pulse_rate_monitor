@@ -5,9 +5,7 @@ import 'package:pulse_rate_monitor/view/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    ProviderScope(child: MyApp()),
-  );
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {
