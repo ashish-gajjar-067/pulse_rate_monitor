@@ -9,26 +9,24 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return charts.TimeSeriesChart(
-      
       [
-      charts.Series<SensorValue, DateTime>(
-
-        id: 'Values',
-        colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
-        domainFn: (SensorValue values, _) => values.time,
-        measureFn: (SensorValue values, _) => values.value,
-        data: _data,
-      )
-    ],
-    
-        animate: false,
-        primaryMeasureAxis: charts.NumericAxisSpec(
-          tickProviderSpec:
-              charts.BasicNumericTickProviderSpec(zeroBound: false),
-          renderSpec: charts.NoneRenderSpec(),
-        ),
-        domainAxis: charts.DateTimeAxisSpec(
-            renderSpec: charts.NoneRenderSpec()));
+        charts.Series<SensorValue, DateTime>(
+          id: 'Values',
+          colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
+          domainFn: (SensorValue values, _) => values.time,
+          measureFn: (SensorValue values, _) => values.value,
+          data: _data,
+        )
+      ],
+      animate: false,
+      primaryMeasureAxis: charts.NumericAxisSpec(
+        tickProviderSpec: charts.BasicNumericTickProviderSpec(zeroBound: false),
+        renderSpec: charts.NoneRenderSpec(),
+      ),
+      domainAxis: charts.DateTimeAxisSpec(
+        renderSpec: charts.NoneRenderSpec(),
+      ),
+    );
   }
 }
 
